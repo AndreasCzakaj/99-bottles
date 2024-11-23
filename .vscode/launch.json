@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "runtimeVersion": "20",
+            "name": "vitest",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "program": "./node_modules/.bin/vitest",
+            "args": [
+                "run"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "disableOptimisticBPs": true
+        }
+    ]
+}
