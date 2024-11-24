@@ -3,7 +3,10 @@ import path from 'path'
 export default {
   test: {
     globals: true,
-    //environment: 'jsdom',
+    environment: 'jsdom',
+    coverage: {
+      provider: 'istanbul' // or 'v8'
+    },
   },
   resolve: {
     alias: {

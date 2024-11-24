@@ -1,4 +1,5 @@
-import { BottlesOpts, defaultBottleOpts, IntRange } from "./shared"
+import { BottlesOpts, defaultBottleOpts } from "./shared"
+import { bottleWord, amountWordLC, amountWordUC } from "./bottles-lib"
 
 export class BottlesSong {
     constructor(private opts: BottlesOpts = defaultBottleOpts) {}
@@ -59,18 +60,4 @@ export class BottlesSong {
         const part2 = `${amountWordLC(resetAmount)} ${bottleWord(resetAmount)} of beer on the wall.`
         return `${part1} ${part2}`
     }
-}
-
-
-function bottleWord(amount: number) {
-    return `bottle${amount == 1 ? "" : "s"}`
-}
-
-
-function amountWordLC(amount: number) {
-    return `${amount == 0 ? "no more" : amount}`
-}
-
-function amountWordUC(amount: number) {
-    return `${amount == 0 ? "No more" : amount}`
 }

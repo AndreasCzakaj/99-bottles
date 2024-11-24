@@ -1,13 +1,12 @@
-import { BottlesOpts, defaultBottleOpts, IntRange } from "./shared"
+import { BottlesOpts, defaultBottleOpts, } from "./shared"
+import { bottleWord, amountWordLC, amountWordUC } from "./bottles-lib"
 
 export class BottlesIterator {
      
-    constructor(private opts: Omit<BottlesOpts, "outputConsumer"> = defaultBottleOpts) {
-        this.currentLineNumber = 1
-    }
+    constructor(private opts: Omit<BottlesOpts, "outputConsumer"> = defaultBottleOpts) {}
 
     private currentAmount: BottlesOpts["startAt"] & BottlesOpts["endAt"] = this.opts.startAt
-    private currentLineNumber: number;
+    private currentLineNumber: number = 1;
    
     public next(): string {
       const lineNo = this.currentLineNumber
@@ -25,16 +24,12 @@ export class BottlesIterator {
             this.currentLineNumber = 6
         }
       }
-      else if (lineNo % 3 === 0) {
+      else {
         out = ""
         this.currentLineNumber = 1
         if (!this.keepSinging()) {
             this.currentLineNumber = 6
         }
-      }
-
-      if (out === undefined) {
-        throw new Error("you went too far")
       }
       
       return out
@@ -75,18 +70,4 @@ export class BottlesIterator {
         const part2 = `${amountWordLC(resetAmount)} ${bottleWord(resetAmount)} of beer on the wall.`
         return `${part1} ${part2}`
     }
-}
-
-
-function bottleWord(amount: number) {
-    return `bottle${amount == 1 ? "" : "s"}`
-}
-
-
-function amountWordLC(amount: number) {
-    return `${amount == 0 ? "no more" : amount}`
-}
-
-function amountWordUC(amount: number) {
-    return `${amount == 0 ? "No more" : amount}`
 }

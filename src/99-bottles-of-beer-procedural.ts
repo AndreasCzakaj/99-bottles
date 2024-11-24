@@ -1,4 +1,5 @@
 import { BottlesOpts, defaultBottleOpts } from "./shared"
+import { bottleWord, amountWordLC, amountWordUC } from "./bottles-lib"
 
 export function bottles(opts: BottlesOpts = defaultBottleOpts) {
     const {outputConsumer, startAt, endAt} = opts
@@ -8,11 +9,6 @@ export function bottles(opts: BottlesOpts = defaultBottleOpts) {
 
     const line2NonZero  = (amount: number)      => `Take one down and pass it around, ${amountWordLC(amount)} ${bottleWord(amount)} of beer on the wall.`
     const line2Zero     = (resetAmount: number) => `Go to the store and buy some more, ${amountWordLC(resetAmount)} ${bottleWord(resetAmount)} of beer on the wall.`
-
-    const bottleWord    = (amount: number) => `bottle${amount == 1 ? "" : "s"}`
-    const amountWordLC  = (amount: number) => `${amount == 0 ? "no more" : amount}`
-    const amountWordUC  = (amount: number) => `${amount == 0 ? "No more" : amount}` 
-
     
     let amount = startAt
     while (amount >= endAt) {

@@ -5,16 +5,27 @@
   "main": "scc/index.ts",
   "scripts": {
     "test": "vitest run --coverage",
-    "wtest": "vitest watch"
+    "wtest": "vitest watch",
+    "serve": "vite -l info --clearScreen false --host"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "lit": "^3.1.4"
+  },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
     "@types/jest": "^29.5.14",
+    "@vitest/coverage-istanbul": "^2.1.5",
     "@vitest/coverage-v8": "^2.0.5",
+    "jsdom": "^24.1.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-pwa": "^0.20.1",
+    "vite-plugin-require": "^1.2.14",
     "vitest": "^2.0.5"
   }
 }

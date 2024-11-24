@@ -78,7 +78,7 @@ export const bottlesTest = (name: string, bottles: (opts?: BottlesOpts) => void)
       })
     })
 
-    test.skip("just print ...", () => {
+    test("just print ...", () => {
       bottles()
     })
   })
